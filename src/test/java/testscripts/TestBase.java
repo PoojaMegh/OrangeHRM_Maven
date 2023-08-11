@@ -1,10 +1,12 @@
 package testscripts;
 
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import base.ControlActions;
 import pages.LoginPage;
+import utlity.DateTimeUtility;
 
 public class TestBase {
 
@@ -18,7 +20,9 @@ public class TestBase {
 	}
 	
 	@AfterMethod
-	public void tearDown() {
+	public void tearDown(ITestResult itestResult) {
+		if(itestResult.getStatus() == ITestResult.FAILURE)
+			ControlActions.takeScreenshots(itestResult.getTestClass().getName() +"_"+ itestResult.getName() + "_" + DateTimeUtility.getTimeStamp());
 		ControlActions.closeBrowser();
 	}
 }
