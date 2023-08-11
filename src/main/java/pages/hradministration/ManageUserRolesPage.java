@@ -9,7 +9,7 @@ import base.ControlActions;
 
 public class ManageUserRolesPage extends ControlActions{
 	 
-	@FindBy(css = "input.select-dropdown")
+	@FindBy(css = "div.select-wrapper>input")
 	WebElement paginationDropDown;
 	
 	@FindBy(css = "li[class='summary']")

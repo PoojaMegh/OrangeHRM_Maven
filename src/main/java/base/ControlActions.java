@@ -1,10 +1,14 @@
 package base;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -173,12 +177,12 @@ public abstract class ControlActions {
 	}
 	
 	protected boolean isElementDisplayed(WebElement element, boolean isWaitRequired){
-		try {
-			waitIfRequired(element, isWaitRequired);
-			return element.isDisplayed();
-		}catch(TimeoutException e) {
-			return false;
-		}
+		waitIfRequired(element, isWaitRequired);
+		return element.isDisplayed();
+		/*
+		 * try { waitIfRequired(element, isWaitRequired); return element.isDisplayed();
+		 * }catch(TimeoutException e) { return false; }
+		 */
 	}
 	
 	protected void setText(String textToBeSent, WebElement element, boolean isWaitRequired) {
@@ -210,6 +214,17 @@ public abstract class ControlActions {
 	
 	protected void waitUntilElementsToBeMoreThan(By by, int count) {
 		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(by,count));
+	}
+	
+	public static void takeScreenshots(String filename) {
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File srcFile = ts.getScreenshotAs(OutputType.FILE);
+		try {
+			FileUtils.copyFile(srcFile, new File("./src/test/resources/screenshots/" + filename + ".png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public static void closeBrowser() {

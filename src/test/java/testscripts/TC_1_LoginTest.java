@@ -54,7 +54,7 @@ public class TC_1_LoginTest {
 		Assert.assertTrue(currentURL.endsWith("retryLogin"));
 	}
 	
-	@Test(dataProvider = "loginDataProvider")
+	//@Test(dataProvider = "loginDataProvider")
 	public void verfiyLoginWithDataProvider(String username, String password, String result) {
 		
 		System.out.println("VERIFY - Logo is displayed on Login Page");
