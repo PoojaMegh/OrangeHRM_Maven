@@ -14,7 +14,7 @@ public class TC_2_WidgetTest extends TestBase{
 	public void verifyWidgetsOnDashboard() {
 		int totalExpectedWidgetCount = 13;
 		System.out.println("STEP -Get displayed widges on Dashboard page");
-		DashboardPage dashboardPage = new DashboardPage();
+		DashboardPage dashboardPage = DashboardPage.getObject();
 		dashboardPage.waitUntilWidgetsAreLoaded();
 		int totalActualWidgetCount = dashboardPage.getTotalVisibleWidgets();
 		System.out.println(totalActualWidgetCount);

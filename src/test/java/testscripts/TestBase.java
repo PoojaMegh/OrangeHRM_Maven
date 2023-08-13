@@ -15,7 +15,7 @@ public class TestBase {
 		System.out.println("PREREQUISITE - Launch oranage HRM URL");
 		ControlActions.start();
 		System.out.println("PREREQUISITE - User Login with valid credential");
-		LoginPage loginPage = new LoginPage();
+		LoginPage loginPage = LoginPage.getObject();
 		loginPage.doLogin("Admin", "Rs77kA@dKL");
 	}
 	

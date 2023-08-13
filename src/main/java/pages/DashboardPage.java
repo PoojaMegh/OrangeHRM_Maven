@@ -11,6 +11,8 @@ import base.ControlActions;
 
 public class DashboardPage extends ControlActions{
 	
+	private static DashboardPage dashboardPage;
+	
 	By byWidgets = By.xpath("//div[@id='widget.id'  and not(contains(@class,'ng-hide'))]");
 	
 	@FindBy(xpath = "//div[text()='Employee Management']")
@@ -51,16 +53,24 @@ public class DashboardPage extends ControlActions{
 	@FindBy(css = "a[class='name']")
 	WebElement profileNameElement;
 	
-	public DashboardPage() {
+	private DashboardPage() {
 		PageFactory.initElements(driver, this);
+	}
+	
+	public static DashboardPage getObject() {
+		if(dashboardPage == null) {
+			dashboardPage = new DashboardPage();
+		}
+		return dashboardPage;
 	}
 	
 	public int getTotalVisibleWidgets() {
 		return listOfWidgets.size();
 	}
 	
-	public void waitUntilDashboardPageIsLoaded() {
+	public DashboardPage waitUntilDashboardPageIsLoaded() {
 		waitForElementToBeVisible(employeeManagentHeaderElement);
+		return this;
 	}
 	
 	public void waitUntilWidgetsAreLoaded() {
@@ -126,6 +136,11 @@ public class DashboardPage extends ControlActions{
 	
 	public String getProfileName() {
 		return getElementText(profileNameElement, false);
+	}
+	
+	public DashboardPage clickOnDashboardLeftMenu(String menuText) {
+		getElement("XPATH", "(//span[contains(text(),'"+menuText+"')]/parent::a)[1]", true).click();
+		return this;
 	}
 	
 }

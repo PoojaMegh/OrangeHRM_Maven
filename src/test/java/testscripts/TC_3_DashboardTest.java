@@ -10,7 +10,7 @@ public class TC_3_DashboardTest extends TestBase {
 	@Test
 	public void verifyEmpoyeeCount() {
 		System.out.println("VERIFY - User profile is displayed");
-		DashboardPage dashboardPage = new DashboardPage();
+		DashboardPage dashboardPage = DashboardPage.getObject();
 		Assert.assertTrue(dashboardPage.isUserProfileDisplayed(), "User profile was not displayed on dashboard page");
 		
 		System.out.println("STEP - Mouse Hover on Profile and Click on setting icon on profile");

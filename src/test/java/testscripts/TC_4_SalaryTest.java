@@ -13,7 +13,7 @@ public class TC_4_SalaryTest extends TestBase {
 	@Test
 	public void verifyCTCIsNonZero() {
 		System.out.println("STEP - User click on Employee Management tab");
-		DashboardPage dashboardPage = new DashboardPage();
+		DashboardPage dashboardPage = DashboardPage.getObject();
 		dashboardPage.waitUntilDashboardPageIsLoaded();
 		new Navigations().clickOnDashboardLeftMenu("Employee Management");
 		

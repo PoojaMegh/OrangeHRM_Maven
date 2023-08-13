@@ -212,6 +212,11 @@ public abstract class ControlActions {
 		e.click();
 	}
 	
+	protected void clickOnElement(String locatorType, String locatorValue, boolean isWaitRequired) {
+		WebElement e = getElement(locatorType, locatorValue, isWaitRequired);
+		e.click();
+	}
+	
 	protected void waitUntilElementsToBeMoreThan(By by, int count) {
 		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(by,count));
 	}
@@ -225,6 +230,12 @@ public abstract class ControlActions {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	protected int getListOfElementCount(List<WebElement> e) {
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.visibilityOfAllElements(e));
+		return e.size();
 	}
 	
 	public static void closeBrowser() {

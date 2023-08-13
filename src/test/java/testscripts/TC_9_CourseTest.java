@@ -35,7 +35,7 @@ public class TC_9_CourseTest extends TestBase{
 			.clickOnSaveButton();*/
 		
 		System.out.println("VERIFY - Organization name is updated and displayed on user profile");
-		boolean orgNameUpdatedFlag = new DashboardPage()
+		boolean orgNameUpdatedFlag = DashboardPage.getObject()
 										.mouseHoverOnUserProfile()
 										.clickOnSettingButton()
 										.clickOnUserMenuAboutLink()

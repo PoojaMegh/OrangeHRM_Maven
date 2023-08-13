@@ -13,7 +13,7 @@ public class TC_7_GeneralInformationTest extends TestBase{
 	public void verifyOrgNameIsUpdated() {
 		System.out.println("STEP - Navigate to General Information Page");
 		
-		DashboardPage dashboardPage = new DashboardPage();
+		DashboardPage dashboardPage = DashboardPage.getObject();
 		new Navigations()
 			.clickOnDashboardLeftMenu("HR Administration")
 			.navigate_to("Organization->General Information");

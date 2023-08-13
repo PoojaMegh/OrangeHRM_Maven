@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import base.ControlActions;
 
 public class LoginPage extends ControlActions{
+	
+	private static LoginPage loginPage;
 
 	@FindBy(css = "div#divLogin>div>img")
 	WebElement logoElement;
@@ -23,8 +25,14 @@ public class LoginPage extends ControlActions{
 	@FindBy(xpath = "//div[contains(text(),'Invalid Credentials')]")
 	WebElement invalidToastMessageElement;
 	
-	public LoginPage() {
+	private LoginPage() {
 		PageFactory.initElements(driver, this);
+	}
+	
+	public static LoginPage getObject() {
+		if(loginPage == null)
+			loginPage = new LoginPage();
+		return loginPage;
 	}
 	
 	public boolean isLogoDisplayed() {

@@ -25,14 +25,14 @@ public class TC_1_LoginTest {
 	@Test
 	public void verifyLogin() {
 		System.out.println("VERIFY - Logo is displayed on Login Page");
-		LoginPage loginPage = new LoginPage();
+		LoginPage loginPage = LoginPage.getObject();
 		boolean isLogoDisplayedFlag = loginPage.isLogoDisplayed();
 		Assert.assertTrue(isLogoDisplayedFlag);
 		
 		System.out.println("STEP - Login with given credentials");
 		loginPage.doLogin("Admin", "Rs77kA@dKL");
 		
-		DashboardPage dashboardPage = new DashboardPage();
+		DashboardPage dashboardPage = DashboardPage.getObject();
 		boolean isHeaderVisible = dashboardPage.isEmployeeManagementHeaderDisplayed();
 		Assert.assertTrue(isHeaderVisible);
 	}
@@ -40,7 +40,7 @@ public class TC_1_LoginTest {
 	//@Test
 	public void verifyLoginWithInvalidCredentials() {
 		System.out.println("VERIFY - Logo is displayed on Login Page");
-		LoginPage loginPage = new LoginPage();
+		LoginPage loginPage = LoginPage.getObject();
 		boolean isLogoDisplayedFlag = loginPage.isLogoDisplayed();
 		Assert.assertTrue(isLogoDisplayedFlag);
 		
@@ -58,7 +58,7 @@ public class TC_1_LoginTest {
 	public void verfiyLoginWithDataProvider(String username, String password, String result) {
 		
 		System.out.println("VERIFY - Logo is displayed on Login Page");
-		LoginPage loginPage = new LoginPage();
+		LoginPage loginPage = LoginPage.getObject();
 		boolean isLogoDisplayedFlag = loginPage.isLogoDisplayed();
 		Assert.assertTrue(isLogoDisplayedFlag);
 		
@@ -66,7 +66,7 @@ public class TC_1_LoginTest {
 		loginPage.doLogin(username, password);
 		
 		if(result.equalsIgnoreCase("valid")) {
-			DashboardPage dashboardPage = new DashboardPage();
+			DashboardPage dashboardPage = DashboardPage.getObject();
 			boolean isHeaderVisible = dashboardPage.isEmployeeManagementHeaderDisplayed();
 			Assert.assertTrue(isHeaderVisible);
 		}else {
