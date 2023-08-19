@@ -3,12 +3,16 @@ package testscripts;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import pages.Navigations;
 import pages.employeemanagement.more.qualifications.SkillPage;
 
+@Epic("Skills Page Test")
 public class TC_6_SkillTest extends TestBase{
 
 	@Test
+	@Story("Verify added skill is displayed")
 	public void verifyAddedSkillDisplayed() {
 		System.out.println("STEP - Navigate to Skills Page");
 		

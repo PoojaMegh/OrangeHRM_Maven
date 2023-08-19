@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="testscripts.TC_1_LoginTest"/>
+      <class name="testscripts.TC_2_WidgetTest"/>
+      <!--<class name="testscripts.TC_3_DashboardTest"/>-->
+      <!--<class name="testscripts.TC_4_SalaryTest"/>
+      <class name="testscripts.TC_5_ManageUserRolesPaginationTest"/>-->
+      <!--<class name="testscripts.TC_6_SkillTest"/>-->
+      <!--<class name="testscripts.TC_7_GeneralInformationTest"/>
+      <class name="testscripts.TC_9_CourseTest"/>-->
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

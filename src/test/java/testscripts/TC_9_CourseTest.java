@@ -14,13 +14,17 @@ package testscripts;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import pages.DashboardPage;
 import pages.Navigations;
 import pages.training.CoursesPage;
 
+@Epic("Course Page Test")
 public class TC_9_CourseTest extends TestBase{
 
 	@Test
+	@Story("Verify Added Course is displayed")
 	public void verifyAddedCourseDisplayed() {
 		System.out.println("STEP - Navigate to Courses Page");
 		
@@ -35,7 +39,7 @@ public class TC_9_CourseTest extends TestBase{
 			.clickOnSaveButton();*/
 		
 		System.out.println("VERIFY - Organization name is updated and displayed on user profile");
-		boolean orgNameUpdatedFlag = DashboardPage.getObject()
+		boolean orgNameUpdatedFlag = new DashboardPage()
 										.mouseHoverOnUserProfile()
 										.clickOnSettingButton()
 										.clickOnUserMenuAboutLink()

@@ -3,17 +3,21 @@ package testscripts;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import pages.DashboardPage;
 import pages.Navigations;
 import pages.employeemanagement.myinfo.PersonalDetailsPage;
 import pages.employeemanagement.myinfo.SalaryPage;
 
+@Epic("Employee Salary test")
 public class TC_4_SalaryTest extends TestBase {
 
 	@Test
+	@Story("Verify CTC of employee is non-zero")
 	public void verifyCTCIsNonZero() {
 		System.out.println("STEP - User click on Employee Management tab");
-		DashboardPage dashboardPage = DashboardPage.getObject();
+		DashboardPage dashboardPage = new DashboardPage();
 		dashboardPage.waitUntilDashboardPageIsLoaded();
 		new Navigations().clickOnDashboardLeftMenu("Employee Management");
 		

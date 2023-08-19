@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import base.ControlActions;
+import io.qameta.allure.Step;
 
 public class DashboardPage extends ControlActions{
 	
@@ -53,17 +54,12 @@ public class DashboardPage extends ControlActions{
 	@FindBy(css = "a[class='name']")
 	WebElement profileNameElement;
 	
-	private DashboardPage() {
+	
+	public DashboardPage() {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public static DashboardPage getObject() {
-		if(dashboardPage == null) {
-			dashboardPage = new DashboardPage();
-		}
-		return dashboardPage;
-	}
-	
+	@Step("Get widgets count")
 	public int getTotalVisibleWidgets() {
 		return listOfWidgets.size();
 	}
@@ -77,6 +73,7 @@ public class DashboardPage extends ControlActions{
 		waitUntilElementsToBeMoreThan(byWidgets,1);
 	}
 	
+	@Step("Getting list of all widgets")
 	public List<String> getAllWidgetsName(){
 		return getListOfElementText(listOfWidgetsTextElement); 
 	}
@@ -89,6 +86,7 @@ public class DashboardPage extends ControlActions{
 		return isElementDisplayed(profilePictureElement, true);
 	}
 	
+	@Step("Move Hover on user profile")
 	public DashboardPage mouseHoverOnUserProfile() {
 		mouseHover(profilePictureElement,false);
 		return this;
@@ -108,6 +106,7 @@ public class DashboardPage extends ControlActions{
 	 * waitForInvisibilyOfElement(loaderElement); }
 	 */
 	
+	@Step("Get employee count")
 	public int getEmployeeCount() {
 		waitUntilTextToBePresent(employeeCountElement, "Employees:");
 		String empCountInfo = getElementText(employeeCountElement, false);
@@ -117,6 +116,7 @@ public class DashboardPage extends ControlActions{
 	}
 	
 	//New Added
+	@Step("Getting user's org name")
 	public String getOrganizationName() {
 		waitForElementToBeVisible(organizationNameElement);
 		String orgName = getElementText(organizationNameElement, true);
@@ -138,6 +138,7 @@ public class DashboardPage extends ControlActions{
 		return getElementText(profileNameElement, false);
 	}
 	
+	@Step("Navigating on Dashboard page left menu")
 	public DashboardPage clickOnDashboardLeftMenu(String menuText) {
 		getElement("XPATH", "(//span[contains(text(),'"+menuText+"')]/parent::a)[1]", true).click();
 		return this;

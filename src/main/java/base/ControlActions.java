@@ -18,14 +18,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import constant.ConstantPath;
 import customException.InvalidLocatorException;
+import io.qameta.allure.Step;
 
 public abstract class ControlActions {
 	protected static WebDriver driver;
 	protected static WebDriverWait wait;
 	
-	
+	@Step("Browser launch")
 	static public void start() {
 		//WebDriverManager.chromedriver().setup();
+		//String browserName = System.getProperty("browsername");
         System.setProperty("webdriver.chrome.driver", ConstantPath.CHROME_DRIVER_EXE);
         System.setProperty("webdriver.chrome.silentOutput","true");
 		driver = new ChromeDriver();
@@ -34,6 +36,7 @@ public abstract class ControlActions {
         wait = new WebDriverWait(driver, 30);
 	}
 	
+	@Step("Looking for Element using {0} with value {1}")
 	protected WebElement getElement(String locatorType, String locatorValue, boolean isWaitRequired) {
 		locatorType = locatorType.toUpperCase();
 		WebElement element = null;
@@ -101,6 +104,7 @@ public abstract class ControlActions {
 		return element;
 	}
 	
+	@Step("Get List of Elements for {0}")
 	protected List<String> getListOfElementText(String locator){
 		List<WebElement> listOfElements = driver.findElements(By.xpath(locator));
 		List<String> listOfElementsText = new ArrayList<>();
@@ -111,6 +115,7 @@ public abstract class ControlActions {
 		return listOfElementsText;
 	}
 	
+	@Step("Get List of Elements for {0}")
 	protected List<String> getListOfElementText(List<WebElement> listOfElements){
 		List<String> listOfElementsText = new ArrayList<>();
 		
@@ -125,16 +130,19 @@ public abstract class ControlActions {
 		mouseHover(e,true);
 	}
 	
+	@Step("Move Hover on element {0}")
 	protected void mouseHover(WebElement e, boolean isWaitRequired) {
 		waitIfRequired(e, isWaitRequired);
 		Actions action = new Actions(driver);
 		action.moveToElement(e).build().perform();
 	}
 	
+	@Step("Move Hover on element")
 	protected WebElement waitForElementToBeVisible(String locatorType, String locatorValue) {
 		return getElement(locatorType, locatorValue, true);
 	}
 	
+	@Step("Wait for visibility of element {0}")
 	protected void waitForElementToBeVisible(WebElement e) {
 		waitIfRequired(e, true);
 	}

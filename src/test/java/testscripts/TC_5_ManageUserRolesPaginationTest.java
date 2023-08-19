@@ -3,12 +3,16 @@ package testscripts;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import pages.Navigations;
 import pages.hradministration.ManageUserRolesPage;
 
+@Epic("Manage User Roles Page Tests")
 public class TC_5_ManageUserRolesPaginationTest extends TestBase{
 	
 	@Test
+	@Story("Verify record counts deisplayed")
 	public void verifyCorrectRecordCountDisplayed() {
 		System.out.println("STEP - Navigate to Manage User Roles Page");
 		

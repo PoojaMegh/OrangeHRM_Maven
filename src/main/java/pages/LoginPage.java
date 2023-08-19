@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import base.ControlActions;
+import io.qameta.allure.Step;
 
 public class LoginPage extends ControlActions{
 	
@@ -25,20 +26,20 @@ public class LoginPage extends ControlActions{
 	@FindBy(xpath = "//div[contains(text(),'Invalid Credentials')]")
 	WebElement invalidToastMessageElement;
 	
-	private LoginPage() {
+	public LoginPage() {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public static LoginPage getObject() {
-		if(loginPage == null)
-			loginPage = new LoginPage();
-		return loginPage;
-	}
+	/*
+	 * public static LoginPage getObject() { if(loginPage == null) loginPage = new
+	 * LoginPage(); return loginPage; }
+	 */
 	
 	public boolean isLogoDisplayed() {
 		return isElementDisplayed(logoElement, false);
 	}
 	
+	@Step("Login with username {0}")
 	public void doLogin(String uname, String password) {
 		setText(uname, userNameElement, false);
 		setText(password, passwordElement, false);

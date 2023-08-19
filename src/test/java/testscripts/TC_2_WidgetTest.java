@@ -6,15 +6,19 @@ import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import pages.DashboardPage;
 
+@Epic("Widget Test")
 public class TC_2_WidgetTest extends TestBase{
 
 	@Test
+	@Story("Verify Dashboard widgets")
 	public void verifyWidgetsOnDashboard() {
 		int totalExpectedWidgetCount = 13;
 		System.out.println("STEP -Get displayed widges on Dashboard page");
-		DashboardPage dashboardPage = DashboardPage.getObject();
+		DashboardPage dashboardPage = new DashboardPage();
 		dashboardPage.waitUntilWidgetsAreLoaded();
 		int totalActualWidgetCount = dashboardPage.getTotalVisibleWidgets();
 		System.out.println(totalActualWidgetCount);

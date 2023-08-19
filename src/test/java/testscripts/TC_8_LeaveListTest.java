@@ -3,17 +3,21 @@ package testscripts;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import pages.DashboardPage;
 import pages.leave.LeaveListPage;
 import pages.leave.LeaveListPage.DateType;
 import pages.leave.LeaveListPage.LeaveBtnOptions;
 import pages.leave.LeaveListPage.Month;
 
+@Epic("Leave List Page Test")
 public class TC_8_LeaveListTest extends TestBase{
 
 	@Test
+	@Story("Verify leave list for selected criteria")
 	public void verifyLeaveList() throws InterruptedException {
-		DashboardPage dashboardPage = DashboardPage.getObject();
+		DashboardPage dashboardPage = new DashboardPage();
 		
 		System.out.println("STEP - Navigate to Leave Page");
 		dashboardPage
