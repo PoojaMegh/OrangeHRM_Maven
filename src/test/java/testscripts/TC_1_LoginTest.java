@@ -10,10 +10,13 @@ import org.testng.annotations.Test;
 
 import base.ControlActions;
 import constant.ConstantPath;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import pages.DashboardPage;
 import pages.LoginPage;
 import utlity.ExcelOperations;
 
+@Epic("Login Page Test Cases")
 public class TC_1_LoginTest {
 	
 	@BeforeMethod
@@ -23,16 +26,17 @@ public class TC_1_LoginTest {
 	}
 	
 	@Test
+	@Story("Verify User login with Valid Credentials")
 	public void verifyLogin() {
 		System.out.println("VERIFY - Logo is displayed on Login Page");
-		LoginPage loginPage = LoginPage.getObject();
+		LoginPage loginPage = new LoginPage();
 		boolean isLogoDisplayedFlag = loginPage.isLogoDisplayed();
 		Assert.assertTrue(isLogoDisplayedFlag);
 		
 		System.out.println("STEP - Login with given credentials");
 		loginPage.doLogin("Admin", "Rs77kA@dKL");
 		
-		DashboardPage dashboardPage = DashboardPage.getObject();
+		DashboardPage dashboardPage = new DashboardPage();
 		boolean isHeaderVisible = dashboardPage.isEmployeeManagementHeaderDisplayed();
 		Assert.assertTrue(isHeaderVisible);
 	}
@@ -40,7 +44,7 @@ public class TC_1_LoginTest {
 	//@Test
 	public void verifyLoginWithInvalidCredentials() {
 		System.out.println("VERIFY - Logo is displayed on Login Page");
-		LoginPage loginPage = LoginPage.getObject();
+		LoginPage loginPage = new LoginPage();
 		boolean isLogoDisplayedFlag = loginPage.isLogoDisplayed();
 		Assert.assertTrue(isLogoDisplayedFlag);
 		
@@ -58,7 +62,7 @@ public class TC_1_LoginTest {
 	public void verfiyLoginWithDataProvider(String username, String password, String result) {
 		
 		System.out.println("VERIFY - Logo is displayed on Login Page");
-		LoginPage loginPage = LoginPage.getObject();
+		LoginPage loginPage = new LoginPage();
 		boolean isLogoDisplayedFlag = loginPage.isLogoDisplayed();
 		Assert.assertTrue(isLogoDisplayedFlag);
 		
@@ -66,7 +70,7 @@ public class TC_1_LoginTest {
 		loginPage.doLogin(username, password);
 		
 		if(result.equalsIgnoreCase("valid")) {
-			DashboardPage dashboardPage = DashboardPage.getObject();
+			DashboardPage dashboardPage = new DashboardPage();
 			boolean isHeaderVisible = dashboardPage.isEmployeeManagementHeaderDisplayed();
 			Assert.assertTrue(isHeaderVisible);
 		}else {
