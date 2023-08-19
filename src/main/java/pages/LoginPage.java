@@ -5,8 +5,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import base.ControlActions;
+import io.qameta.allure.Step;
 
 public class LoginPage extends ControlActions{
+	
+	private static LoginPage loginPage;
 
 	@FindBy(css = "div#divLogin>div>img")
 	WebElement logoElement;
@@ -27,10 +30,16 @@ public class LoginPage extends ControlActions{
 		PageFactory.initElements(driver, this);
 	}
 	
+	/*
+	 * public static LoginPage getObject() { if(loginPage == null) loginPage = new
+	 * LoginPage(); return loginPage; }
+	 */
+	
 	public boolean isLogoDisplayed() {
 		return isElementDisplayed(logoElement, false);
 	}
 	
+	@Step("Login with username {0}")
 	public void doLogin(String uname, String password) {
 		setText(uname, userNameElement, false);
 		setText(password, passwordElement, false);

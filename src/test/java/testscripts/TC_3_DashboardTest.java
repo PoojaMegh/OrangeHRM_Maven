@@ -3,11 +3,15 @@ package testscripts;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import pages.DashboardPage;
 
+@Epic("Dashboard Page test")
 public class TC_3_DashboardTest extends TestBase {
 
 	@Test
+	@Story("Verify employee count")
 	public void verifyEmpoyeeCount() {
 		System.out.println("VERIFY - User profile is displayed");
 		DashboardPage dashboardPage = new DashboardPage();

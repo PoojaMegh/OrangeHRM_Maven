@@ -10,10 +10,13 @@ import org.testng.annotations.Test;
 
 import base.ControlActions;
 import constant.ConstantPath;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import pages.DashboardPage;
 import pages.LoginPage;
 import utlity.ExcelOperations;
 
+@Epic("Login Page Test Cases")
 public class TC_1_LoginTest {
 	
 	@BeforeMethod
@@ -23,6 +26,7 @@ public class TC_1_LoginTest {
 	}
 	
 	@Test
+	@Story("Verify User login with Valid Credentials")
 	public void verifyLogin() {
 		System.out.println("VERIFY - Logo is displayed on Login Page");
 		LoginPage loginPage = new LoginPage();
