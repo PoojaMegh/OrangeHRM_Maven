@@ -14,7 +14,7 @@ public class TestBase {
 		ControlActions.start();
 		System.out.println("PREREQUISITE - User Login with valid credential");
 		LoginPage loginPage = new LoginPage();
-		loginPage.doLogin("Admin", "Rs77kA@dKL");
+		loginPage.doLogin("Admin", "Bf6ZqJK@3i");
 	}
 	
 	@AfterMethod

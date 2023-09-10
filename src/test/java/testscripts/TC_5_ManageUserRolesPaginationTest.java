@@ -20,7 +20,7 @@ public class TC_5_ManageUserRolesPaginationTest extends TestBase{
 		
 		System.out.println("VERIFY - By default 50 records should be displayed in table");
 		String actualDefaultValue = manageUserRolesPage.getPaginationDefaultValue();
-		Assert.assertSame(actualDefaultValue, "50");
+		Assert.assertEquals(actualDefaultValue, "50");
 			
 		System.out.println("VERIFY - Correct record summary is displayed at right corner of page");
 		int expectedRowCount = manageUserRolesPage.getTotalTableRows();

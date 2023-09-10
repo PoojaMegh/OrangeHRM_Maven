@@ -26,7 +26,7 @@ public abstract class ControlActions {
         System.setProperty("webdriver.chrome.silentOutput","true");
 		driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://poojamegh-trials710.orangehrmlive.com/");
+        driver.get("https://adminpoojamegh-trials710.orangehrmlive.com/");
         wait = new WebDriverWait(driver, 30);
 	}
 	

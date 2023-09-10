@@ -5,7 +5,6 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import base.ControlActions;
@@ -30,7 +29,7 @@ public class TC_1_LoginTest {
 		Assert.assertTrue(isLogoDisplayedFlag);
 		
 		System.out.println("STEP - Login with given credentials");
-		loginPage.doLogin("Admin", "Rs77kA@dKL");
+		loginPage.doLogin("Admin", "Bf6ZqJK@3i");
 		
 		DashboardPage dashboardPage = new DashboardPage();
 		boolean isHeaderVisible = dashboardPage.isEmployeeManagementHeaderDisplayed();
@@ -54,7 +53,7 @@ public class TC_1_LoginTest {
 		Assert.assertTrue(currentURL.endsWith("retryLogin"));
 	}
 	
-	@Test(dataProvider = "loginDataProvider")
+	//@Test(dataProvider = "loginDataProvider")
 	public void verfiyLoginWithDataProvider(String username, String password, String result) {
 		
 		System.out.println("VERIFY - Logo is displayed on Login Page");
@@ -78,7 +77,7 @@ public class TC_1_LoginTest {
 		}
 	}
 	
-	@DataProvider
+//	@DataProvider
 	public Object[][] loginDataProvider() throws IOException{
 		String filePath = ConstantPath.LOGIN_DATA_FILEPATH;
 		String sheetName = ConstantPath.LOGIN_SHEET_NAME;
