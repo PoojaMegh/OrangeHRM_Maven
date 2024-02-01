@@ -1,4 +1,4 @@
-package temp;
+package standAloneScripts;
 
 import org.testng.annotations.Test;
 
