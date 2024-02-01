@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.pooja</groupId>
-	<artifactId>Pooja_MavenHybrid_Apr2023</artifactId>
+	<artifactId>OrangeHRM_Maven</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Pooja_Maven-Hybrid_Apr2023</name>
+	<name>OrangeHRM_Maven</name>
 
 	<properties>
 		<aspectj.version>1.9.7</aspectj.version>
