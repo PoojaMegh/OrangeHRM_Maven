@@ -34,7 +34,7 @@ public class TC_1_LoginTest {
 		Assert.assertTrue(isLogoDisplayedFlag);
 		
 		System.out.println("STEP - Login with given credentials");
-		loginPage.doLogin("Admin", "Rs77kA@dKL");
+		loginPage.doLogin("Admin", "wU7P2xU@yS");
 		
 		DashboardPage dashboardPage = new DashboardPage();
 		boolean isHeaderVisible = dashboardPage.isEmployeeManagementHeaderDisplayed();
